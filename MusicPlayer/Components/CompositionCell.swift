@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CompositionCell: View {
+    
+    var composition: compositionModel
+    
     var body: some View {
         List {
             HStack {
@@ -15,11 +18,11 @@ struct CompositionCell: View {
                     .frame(width: 60, height: 60)
                     .cornerRadius(10)
                 VStack(alignment: .leading) {
-                    Text("Queen").artistName()
-                    Text("The show must go on").compositionName()
+                    Text(composition.artist ?? "Unknow Artist").artistName()
+                    Text(composition.name).compositionName()
                 }
                 Spacer()
-                Text("03:48").compositionName()
+                Text("03:44").compositionName()
             }
             .listRowBackground(Color.clear)
             .listRowSeparator(.hidden)
@@ -29,6 +32,6 @@ struct CompositionCell: View {
 }
 
 #Preview {
-    CompositionCell()
+    CompositionCell(composition: compositionModel(name: "Bambarbia", data: Data(), artist: "Kergudu", coverImage: Data(), duration: 0))
         .preferredColorScheme(.dark)
 }
