@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct compositionModel: Identifiable {
-    let id = UUID()
-    let name: String
-    let data: Data
-    let artist: String?
-    let coverImage: Data?
-    let duration: TimeInterval?
+struct CompositionModel: Identifiable {
+    var id = UUID()
+    var name: String
+    var data: Data
+    var artist: String?
+    var coverImage: Data?
+    var duration: TimeInterval?
 }

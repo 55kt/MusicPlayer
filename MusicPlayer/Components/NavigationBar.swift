@@ -13,6 +13,8 @@ struct NavigationBar: View {
     let navTitle: String
     let buttonTextName: String?
     let buttonImage: String?
+    @State var showFiles = false
+    @EnvironmentObject var vm: ViewModel
     
     //MARK: - Body
     var body: some View {
@@ -31,7 +33,7 @@ struct NavigationBar: View {
                 // Custon Navigation Bar Button
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        //action
+                        showFiles.toggle()
                     } label: {
                         if let buttonTextName = buttonTextName {
                             Text(buttonTextName)
@@ -44,6 +46,9 @@ struct NavigationBar: View {
                         }
                     }
                 }
+                .sheet(isPresented: &showFiles, content: {
+                    ImportFileManager(compositions: $vm.compositions)
+                })
             }
     }
 }
@@ -55,4 +60,5 @@ struct NavigationBar: View {
         NavigationBar(navTitle: "Nav Title Name",buttonTextName: nil, buttonImage: "plus")
     }
         .preferredColorScheme(.dark)
+        .environmentObject(ViewModel())
 }

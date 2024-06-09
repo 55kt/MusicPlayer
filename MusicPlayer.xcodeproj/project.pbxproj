@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B130F762C15E71E005B31C8 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B130F752C15E71E005B31C8 /* NavigationBar.swift */; };
+		4B130F782C15FC9F005B31C8 /* ImportFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B130F772C15FC9F005B31C8 /* ImportFileManager.swift */; };
 		4BBCB9302C15689B0089DB14 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBCB92F2C15689B0089DB14 /* ViewModel.swift */; };
 		4BBCB9332C156C3D0089DB14 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBCB9322C156C3D0089DB14 /* ListView.swift */; };
 		4BE441282C14BB32007C9B0A /* MusicPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE441272C14BB32007C9B0A /* MusicPlayerApp.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		4B130F752C15E71E005B31C8 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		4B130F772C15FC9F005B31C8 /* ImportFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFileManager.swift; sourceTree = "<group>"; };
 		4BBCB92F2C15689B0089DB14 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4BBCB9322C156C3D0089DB14 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		4BE441242C14BB32007C9B0A /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				4BE4413C2C14CADC007C9B0A /* FontsExtensions.swift */,
+				4B130F772C15FC9F005B31C8 /* ImportFileManager.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B130F782C15FC9F005B31C8 /* ImportFileManager.swift in Sources */,
 				4BBCB9332C156C3D0089DB14 /* ListView.swift in Sources */,
 				4BE441412C14D123007C9B0A /* Model.swift in Sources */,
 				4BE4413B2C14BE15007C9B0A /* BackgroundView.swift in Sources */,

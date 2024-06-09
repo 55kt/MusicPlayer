@@ -10,7 +10,7 @@ import SwiftUI
 struct CompositionCell: View {
     
     //MARK: - Properties
-    var composition: compositionModel
+    var composition: CompositionModel
     
     //MARK: - Body
     var body: some View {
@@ -32,6 +32,6 @@ struct CompositionCell: View {
 
 //MARK: - Preview
 #Preview {
-    CompositionCell(composition: compositionModel(name: "Bambarbia", data: Data(), artist: "Kergudu", coverImage: Data(), duration: 0))
+    CompositionCell(composition: CompositionModel(name: "Bambarbia", data: Data(), artist: "Kergudu", coverImage: Data(), duration: 0))
         .preferredColorScheme(.dark)
 }
