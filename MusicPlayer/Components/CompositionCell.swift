@@ -9,28 +9,28 @@ import SwiftUI
 
 struct CompositionCell: View {
     
+    //MARK: - Properties
     var composition: compositionModel
     
+    //MARK: - Body
     var body: some View {
-        List {
             HStack {
                 Color.white
                     .frame(width: 60, height: 60)
                     .cornerRadius(10)
                 VStack(alignment: .leading) {
-                    Text(composition.artist ?? "Unknow Artist").artistName()
-                    Text(composition.name).compositionName()
+                    Text(composition.artist ?? "Unknow Artist").artistFont()
+                    Text(composition.name).compositionFont()
                 }
                 Spacer()
-                Text("03:44").compositionName()
+                Text("03:44").compositionFont()
             }
             .listRowBackground(Color.clear)
             .listRowSeparator(.hidden)
-        }
-        .listStyle(.plain)
     }
 }
 
+//MARK: - Preview
 #Preview {
     CompositionCell(composition: compositionModel(name: "Bambarbia", data: Data(), artist: "Kergudu", coverImage: Data(), duration: 0))
         .preferredColorScheme(.dark)

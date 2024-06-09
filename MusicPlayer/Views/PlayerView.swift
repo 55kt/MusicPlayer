@@ -9,16 +9,26 @@ import SwiftUI
 
 struct PlayerView: View {
     
+    //MARK: - Properties
+    @EnvironmentObject var vm: ViewModel
+    
+    //MARK: - Body
     var body: some View {
-        ZStack {
-            BackgroundView()
-            
-            CompositionCell(composition: compositionModel(name: "1", data: Data(), artist: "2", coverImage: Data(), duration: 0))
+        NavigationStack {
+            ZStack {
+                NavigationBar(navTitle: "Music App",buttonTextName: nil, buttonImage: "plus.circle")
+                
+                BackgroundView()
+                
+                ListView()
+            }
         }
     }
 }
 
+//MARK: - Preview
 #Preview {
     PlayerView()
+        .environmentObject(ViewModel())
         .preferredColorScheme(.dark)
 }

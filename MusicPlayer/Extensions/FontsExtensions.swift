@@ -8,26 +8,27 @@
 import SwiftUI
 
 extension Text {
-    func artistName () -> some View {
+    func artistFont () -> some View {
         self
             .foregroundStyle(.white)
             .font(.system(size: 16, weight: .semibold, design: .rounded))
     }
     
-    func compositionName () -> some View {
+    func compositionFont () -> some View {
         self
             .foregroundStyle(.white)
             .font(.system(size: 14, weight: .light, design: .rounded))
     }
 }
 
+// Preview Fonts
 struct FontView: View {
     var body: some View {
         VStack {
             Text("Artist name")
-                .artistName()
+                .artistFont()
             Text("Artist name")
-                .compositionName()
+                .compositionFont()
         }
     }
 }

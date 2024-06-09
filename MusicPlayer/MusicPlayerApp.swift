@@ -11,12 +11,13 @@ import SwiftUI
 struct MusicPlayerApp: App {
     
     //MARK: - Properties
-    @AppStorage("isDarkMode") private var isDarkMode: Bool = true
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = true // Dark theme condition
     
+    //MARK: - Body
     var body: some Scene {
         WindowGroup {
             PlayerView()
-                .preferredColorScheme(isDarkMode ? .dark : .light)
+                .preferredColorScheme(isDarkMode ? .dark : .light) // Dark theme condition
         }
     }
 }
