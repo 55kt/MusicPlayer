@@ -18,9 +18,7 @@ struct NavigationBar: View {
     
     //MARK: - Body
     var body: some View {
-        
        BackgroundView()
-        
             // Custom Navigation Bar Title
             .toolbar {
                 ToolbarItem(placement: .principal){
@@ -53,7 +51,6 @@ struct NavigationBar: View {
     }
 }
 
-
 //MARK: - Preview
 #Preview {
     NavigationStack {
@@ -62,3 +59,6 @@ struct NavigationBar: View {
         .preferredColorScheme(.dark)
         .environmentObject(ViewModel())
 }
+
+// empty function
+

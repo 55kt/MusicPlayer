@@ -10,7 +10,7 @@ import SwiftUI
 struct PlayerView: View {
     
     //MARK: - Properties
-    @StateObject var vm: ViewModel
+    @StateObject var vm = ViewModel()
     
     //MARK: - Body
     var body: some View {
@@ -28,7 +28,6 @@ struct PlayerView: View {
 
 //MARK: - Preview
 #Preview {
-    PlayerView(vm: ViewModel())
-        .environmentObject(ViewModel())
+    PlayerView()
         .preferredColorScheme(.dark)
 }
