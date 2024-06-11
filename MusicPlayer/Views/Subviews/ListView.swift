@@ -16,8 +16,12 @@ struct ListView: View {
     var body: some View {
         List {
             ForEach(vm.compositions) { composition in
-                CompositionCell(composition: composition)
+                CompositionCell(composition: composition, durationFormatted: vm.durationFormatted)
+                    .onTapGesture {
+                        vm.playAudio(composition: composition)
+                    }
             }
+            .onDelete(perform: vm.deleteComposition)
         }
         .listStyle(.plain)
     }
@@ -25,7 +29,7 @@ struct ListView: View {
 
 //MARK: - Preview
 #Preview {
-    ListView()
+    PlayerView()
         .environmentObject(ViewModel())
         .preferredColorScheme(.dark)
 }
