@@ -28,7 +28,7 @@ class ViewModel: ObservableObject {
     }
     
     // Function for take a correct duration
-    func durationFormatted(duration: TimeInterval) -> String {
+    func timeIntervalToString(duration: TimeInterval) -> String {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.minute, .second]
         formatter.unitsStyle = .positional

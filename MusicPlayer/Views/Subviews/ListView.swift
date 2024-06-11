@@ -16,7 +16,7 @@ struct ListView: View {
     var body: some View {
         List {
             ForEach(vm.compositions) { composition in
-                CompositionCell(composition: composition, durationFormatted: vm.durationFormatted)
+                CompositionCell(composition: composition, durationFormatted: vm.timeIntervalToString)
                     .onTapGesture {
                         vm.playAudio(composition: composition)
                     }

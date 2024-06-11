@@ -21,10 +21,13 @@ struct PlayerView: View {
                 BackgroundView()
                 
                 ListView()
+                
+                MediaPlayer()
+                
+                }
             }
         }
     }
-}
 
 //MARK: - Preview
 #Preview {

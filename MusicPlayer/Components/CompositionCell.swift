@@ -50,9 +50,3 @@ struct CompositionCell: View {
             .listRowSeparator(.hidden)
     }
 }
-
-//MARK: - Preview
-#Preview {
-    PlayerView()
-        .preferredColorScheme(.dark)
-}
