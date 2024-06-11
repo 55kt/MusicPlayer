@@ -29,5 +29,6 @@ struct PlayerView: View {
 //MARK: - Preview
 #Preview {
     PlayerView()
+        .environmentObject(ViewModel())
         .preferredColorScheme(.dark)
 }
