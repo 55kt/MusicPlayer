@@ -16,14 +16,13 @@ struct PlayerView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                NavigationBar(navTitle: "Music App",buttonTextName: nil, buttonImage: "plus.circle")
-                
                 BackgroundView()
+                
+                NavigationBar(navTitle: "Music App",buttonTextName: nil, buttonImage: "plus.circle")
                 
                 ListView()
                 
                 MediaPlayer()
-                
                 }
             }
         }

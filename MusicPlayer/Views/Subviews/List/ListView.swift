@@ -24,6 +24,12 @@ struct ListView: View {
             .onDelete(perform: vm.deleteComposition)
         }
         .listStyle(.plain)
+        .overlay(
+            CustomDivider()
+        )
+        .padding(.vertical, 1)
+        .padding(.bottom, 90)
+        .frame(maxHeight: .infinity)
     }
 }
 

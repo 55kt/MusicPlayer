@@ -10,7 +10,8 @@ import SwiftUI
 struct MediaPlayer: View {
     
     //MARK: - Properties
-    @State private var showFullPlayer = true
+    @State private var showFullPlayer = false
+    @Namespace private var playerAnimation
     
     var frameImage: CGFloat {
         showFullPlayer ? 320 : 60
@@ -18,14 +19,10 @@ struct MediaPlayer: View {
     
     //MARK: - Body
     var body: some View {
-        ZStack {
-            
-            BackgroundView()
+        VStack {
+            Spacer()
             
             VStack {
-                
-                Spacer()
-                
                 // Mini Player
                 HStack {
                     Color.white
@@ -33,11 +30,12 @@ struct MediaPlayer: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     
                     if !showFullPlayer {
-                        
+                        // Description
                         VStack(alignment: .leading) {
                             Text("Artist Name").artistFont()
                             Text("Composition Name").compositionFont()
                         }
+                        .matchedGeometryEffect(id: "Description", in: playerAnimation)
                         
                         Spacer()
                         CustomButton(image: "play.fill", size: .title) {
@@ -59,8 +57,10 @@ struct MediaPlayer: View {
                         Text("Artist Name").artistFont()
                         Text("Composition Name").compositionFont()
                     }
+                    .matchedGeometryEffect(id: "Description", in: playerAnimation)
+                    .padding(.top)
+                    
                     VStack {
-                        
                         // Duration
                         HStack {
                             Text("00:00")
@@ -83,17 +83,17 @@ struct MediaPlayer: View {
                             CustomButton(image: "forward.end.fill", size: .title2) {
                                 //
                             }
-                            }
                         }
-                        
                     }
+                    .padding(.horizontal, 40)
                 }
+            }
+            .frame(height: showFullPlayer ? UIScreen.main.bounds.height + 2000 : 70)
             .onTapGesture {
                 withAnimation(.spring) {
                     self.showFullPlayer.toggle()
                 }
             }
-            
         }
     }
     
