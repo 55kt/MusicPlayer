@@ -14,7 +14,7 @@ struct CustomDivider: View {
                 .frame(height: 1)
                 .background(
                     LinearGradient (
-                        gradient: Gradient(colors: [.black, Color.blue]),
+                        gradient: Gradient(colors: [.black, .blue]),
                         startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/,
                         endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/
                     )
@@ -24,7 +24,7 @@ struct CustomDivider: View {
                 .frame(height: 1)
                 .background(
                     LinearGradient (
-                        gradient: Gradient(colors: [.blue, Color.black]),
+                        gradient: Gradient(colors: [.blue, .black]),
                         startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/,
                         endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/
                     )

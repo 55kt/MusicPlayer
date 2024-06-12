@@ -20,36 +20,35 @@ struct NavigationBar: View {
     var body: some View {
         BackgroundView()
         
-             // Custom Navigation Bar Title
-             .toolbar {
-                 ToolbarItem(placement: .principal){
-                     Text(navTitle)
-                         .font(.largeTitle)
-                         .bold()
-                         .foregroundStyle(.white)
-                 }
-                 
-                 // Custon Navigation Bar Button
-                 ToolbarItem(placement: .topBarTrailing) {
-                     Button {
-                         showFiles.toggle()
-                     } label: {
-                         if let buttonTextName = buttonTextName {
-                             Text(buttonTextName)
-                                 .font(.headline)
-                                 .foregroundStyle(.white)
-                         } else if let buttonImage = buttonImage, !buttonImage.isEmpty {
-                             Image(systemName: buttonImage)
-                                 .font(.headline)
-                                 .foregroundStyle(.white)
-                         }
-                     }
-                 }
-                 
-             }
-             .sheet(isPresented: $showFiles, content: {
-                 ImportFileManager(compositions: $vm.compositions)
-             })
+        // Custom Navigation Bar Title
+            .toolbar {
+                ToolbarItem(placement: .principal){
+                    Text(navTitle)
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundStyle(.white)
+                }
+                
+                // Custon Navigation Bar Button
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showFiles.toggle()
+                    } label: {
+                        if let buttonTextName = buttonTextName {
+                            Text(buttonTextName)
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                        } else if let buttonImage = buttonImage, !buttonImage.isEmpty {
+                            Image(systemName: buttonImage)
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                        }
+                    }
+                }
+            }
+            .sheet(isPresented: $showFiles, content: {
+                ImportFileManager(compositions: $vm.compositions)
+            })
     }
 }
 
@@ -58,6 +57,6 @@ struct NavigationBar: View {
     NavigationStack {
         NavigationBar(navTitle: "Nav Title Name",buttonTextName: nil, buttonImage: "plus")
     }
-        .preferredColorScheme(.dark)
-        .environmentObject(ViewModel())
+    .preferredColorScheme(.dark)
+    .environmentObject(ViewModel())
 }
