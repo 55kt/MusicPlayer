@@ -24,11 +24,8 @@ struct MediaPlayer: View {
     var body: some View {
         VStack {
             Spacer()
-            
             if vm.currentComposition != nil {
-                
                 Player()
-                
                 .frame(height: showFullPlayer ? UIScreen.main.bounds.height + 2000 : 70)
                 .onTapGesture {
                     withAnimation(.easeInOut(duration: 0.3)) {
@@ -37,37 +34,20 @@ struct MediaPlayer: View {
                     }
                 }
             }
-            
-            
         }
     }
     
     //MARK: - Methods
+    
     @ViewBuilder
     private func Player() -> some View {
         VStack {
-            // Mini Player
+            
+            //MARK: -- Mini Player
+            
             HStack {
                 // Cover
-                if let data = vm.currentComposition?.coverImage, let uiImage = UIImage(data: data) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: frameImage, height: frameImage)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                } else {
-                    ZStack {
-                        Color.gray
-                            .frame(width: frameImage, height: frameImage)
-
-                        Image(systemName: "music.note")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 30)
-                            .foregroundStyle(.white)
-                    }
-                    .cornerRadius(10)
-                }
+                CompositionImage(imageData: vm.currentComposition?.coverImage, size: frameImage)
                 
                 if !showFullPlayer {
                     // Description
@@ -75,7 +55,6 @@ struct MediaPlayer: View {
                         CompositionDescription()
                     }
                     .matchedGeometryEffect(id: "Description", in: playerAnimation)
-                    
                     Spacer()
                     CustomButton(image: vm.isPlaying ? "pause.fill" : "play.fill", size: .title) {
                         vm.playPause()
@@ -87,7 +66,7 @@ struct MediaPlayer: View {
             .cornerRadius(10)
             .padding()
             
-            // Full Player
+            //MARK: -- Full Player
             
             if showFullPlayer {
                 
@@ -126,12 +105,12 @@ struct MediaPlayer: View {
                     
                     HStack(spacing: 40) {
                         CustomButton(image: "backward.end.fill", size: .title2) {
-                            //
+                            vm.backward()
                         }
                         CustomButton(image: vm.isPlaying ? "pause.circle.fill" : "play.circle.fill", size: .largeTitle) {
                             vm.playPause()                        }
                         CustomButton(image: "forward.end.fill", size: .title2) {
-                            //
+                            vm.forward()
                         }
                     }
                 }
