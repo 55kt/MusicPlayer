@@ -10,6 +10,7 @@ import SwiftUI
 struct PlayerView: View {
     
     //MARK: - Properties
+    @State private var showNavBar = true
     @StateObject var vm = ViewModel()
     
     //MARK: - Body
@@ -18,11 +19,13 @@ struct PlayerView: View {
             ZStack {
                 BackgroundView()
                 
-                NavigationBar(navTitle: "Music App",buttonTextName: nil, buttonImage: "plus.circle")
+                if showNavBar {
+                    NavigationBar(navTitle: "Music App",buttonTextName: nil, buttonImage: "plus.circle")
+                }
                 
                 ListView()
                 
-                MediaPlayer()
+                MediaPlayer(showNavBar: $showNavBar)
                 }
             }
         }

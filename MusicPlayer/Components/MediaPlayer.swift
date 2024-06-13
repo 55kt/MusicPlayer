@@ -12,8 +12,9 @@ struct MediaPlayer: View {
     //MARK: - Properties
     @State private var showFullPlayer = false
     @Namespace private var playerAnimation
-//    @State private var isDragging = false
     @EnvironmentObject var vm: ViewModel
+    @Binding var showNavBar: Bool
+    //    @State private var isDragging = false
     
     var frameImage: CGFloat {
         showFullPlayer ? 320 : 60
@@ -30,8 +31,9 @@ struct MediaPlayer: View {
                 
                 .frame(height: showFullPlayer ? UIScreen.main.bounds.height + 2000 : 70)
                 .onTapGesture {
-                    withAnimation(.spring) {
+                    withAnimation(.easeInOut(duration: 0.3)) {
                         self.showFullPlayer.toggle()
+                        self.showNavBar.toggle()
                     }
                 }
             }
@@ -159,6 +161,6 @@ struct MediaPlayer: View {
 
 //MARK: - Preview
 #Preview {
-    MediaPlayer()
+    MediaPlayer(showNavBar: .constant(false))
         .environmentObject(ViewModel())
 }
