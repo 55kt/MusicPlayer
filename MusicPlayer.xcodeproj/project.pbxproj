@@ -12,6 +12,7 @@
 		4B20B4892C18C6C3009E8D43 /* MediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20B4882C18C6C3009E8D43 /* MediaPlayer.swift */; };
 		4B69CD482C19E9F700F7621F /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B69CD472C19E9F700F7621F /* CustomDivider.swift */; };
 		4B69CD4B2C1B6E3300F7621F /* CompositionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B69CD4A2C1B6E3300F7621F /* CompositionImage.swift */; };
+		4B69CD4E2C1C7AA600F7621F /* SizeConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B69CD4D2C1C7AA600F7621F /* SizeConstant.swift */; };
 		4BBCB9302C15689B0089DB14 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBCB92F2C15689B0089DB14 /* ViewModel.swift */; };
 		4BBCB9332C156C3D0089DB14 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBCB9322C156C3D0089DB14 /* ListView.swift */; };
 		4BE441282C14BB32007C9B0A /* MusicPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE441272C14BB32007C9B0A /* MusicPlayerApp.swift */; };
@@ -30,6 +31,8 @@
 		4B20B4882C18C6C3009E8D43 /* MediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPlayer.swift; sourceTree = "<group>"; };
 		4B69CD472C19E9F700F7621F /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		4B69CD4A2C1B6E3300F7621F /* CompositionImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionImage.swift; sourceTree = "<group>"; };
+		4B69CD4D2C1C7AA600F7621F /* SizeConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeConstant.swift; sourceTree = "<group>"; };
+		4B69CD4F2C1C7DB400F7621F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4BBCB92F2C15689B0089DB14 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4BBCB9322C156C3D0089DB14 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		4BE441242C14BB32007C9B0A /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +110,7 @@
 		4BE441262C14BB32007C9B0A /* MusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				4B69CD4F2C1C7DB400F7621F /* Info.plist */,
 				4BE441272C14BB32007C9B0A /* MusicPlayerApp.swift */,
 				4BE441352C14BCD0007C9B0A /* Views */,
 				4BE441362C14BCD7007C9B0A /* ViewModel */,
@@ -168,6 +172,7 @@
 			children = (
 				4BE4413C2C14CADC007C9B0A /* FontsExtensions.swift */,
 				4B130F772C15FC9F005B31C8 /* ImportFileManager.swift */,
+				4B69CD4D2C1C7AA600F7621F /* SizeConstant.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 				4B69CD482C19E9F700F7621F /* CustomDivider.swift in Sources */,
 				4B20B4892C18C6C3009E8D43 /* MediaPlayer.swift in Sources */,
 				4BE441282C14BB32007C9B0A /* MusicPlayerApp.swift in Sources */,
+				4B69CD4E2C1C7AA600F7621F /* SizeConstant.swift in Sources */,
 				4BBCB9302C15689B0089DB14 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,11 +397,12 @@
 				DEVELOPMENT_TEAM = QT3T249ZHN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MusicPlayer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -403,9 +410,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = master.MusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -420,11 +431,12 @@
 				DEVELOPMENT_TEAM = QT3T249ZHN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MusicPlayer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -432,9 +444,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = master.MusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

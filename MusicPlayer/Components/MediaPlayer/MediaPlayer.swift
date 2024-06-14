@@ -26,7 +26,7 @@ struct MediaPlayer: View {
             Spacer()
             if vm.currentComposition != nil {
                 Player()
-                .frame(height: showFullPlayer ? UIScreen.main.bounds.height + 2000 : 70)
+                    .frame(height: showFullPlayer ? SizeConstant.fullPlayer : SizeConstant.miniPlayer)
                 .onTapGesture {
                     withAnimation(.easeInOut(duration: 0.3)) {
                         self.showFullPlayer.toggle()
