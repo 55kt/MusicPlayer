@@ -6,22 +6,24 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ListView: View {
     
     //MARK: - Properties
     @EnvironmentObject var vm: ViewModel
+    @ObservedResults(CompositionModel.self) var compositions
     
     //MARK: - Body
     var body: some View {
         List {
-            ForEach(vm.compositions) { composition in
+            ForEach(compositions) { composition in
                 CompositionCell(composition: composition, durationFormatted: vm.timeIntervalToString)
                     .onTapGesture {
                         vm.playAudio(composition: composition)
                     }
             }
-            .onDelete(perform: vm.deleteComposition)
+            .onDelete(perform: $compositions.remove)
         }
         .listStyle(.plain)
         .overlay(

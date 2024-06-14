@@ -17,6 +17,8 @@ struct MusicPlayerApp: App {
     //MARK: - Body
     var body: some Scene {
         WindowGroup {
+            /// When the application starts, it prints out the path to the database
+            let _ = print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.path())
             PlayerView()
                 .environmentObject(vm)
                 .preferredColorScheme(isDarkMode ? .dark : .light) // Dark theme condition

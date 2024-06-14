@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct NavigationBar: View {
     
@@ -14,7 +15,7 @@ struct NavigationBar: View {
     let buttonTextName: String?
     let buttonImage: String?
     @State var showFiles = false
-    @EnvironmentObject var vm: ViewModel
+    @ObservedResults(CompositionModel.self) var compositions
     
     //MARK: - Body
     var body: some View {
@@ -47,7 +48,7 @@ struct NavigationBar: View {
                 }
             }
             .sheet(isPresented: $showFiles, content: {
-                ImportFileManager(compositions: $vm.compositions)
+                ImportFileManager()
             })
     }
 }

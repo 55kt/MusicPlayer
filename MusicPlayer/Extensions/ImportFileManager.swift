@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 import AVFoundation
+import RealmSwift
 
 /// Import file manager allows you to select audio files and import them into the application
 struct ImportFileManager: UIViewControllerRepresentable {
     
-    @Binding var compositions: [CompositionModel]
     
     /// Manages tasks between swift ui and ui kit
     func makeCoordinator() -> Coordinator {
@@ -43,13 +43,17 @@ struct ImportFileManager: UIViewControllerRepresentable {
     /// Coordinator links UiDocumentPicker and ImportFileManager
     class Coordinator: NSObject, UIDocumentPickerDelegate {
         
+        //MARK: - Properties
         /// Link to the parent component ImportFileManager so that you can interact with it
         var parent: ImportFileManager
+        @ObservedResults(CompositionModel.self) var compositions
         
+        //MARK: - Initializer
         init(parent: ImportFileManager) {
             self.parent = parent
         }
         
+        //MARK: - Methods
         /// This method is called when the user selects a document (an audio file in our case)
         /// The method processes the selected URL and creates a composition of type CompositionModel and then adds the composition to the compositions array
         func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
@@ -93,15 +97,14 @@ struct ImportFileManager: UIViewControllerRepresentable {
                     /// Getting duration of composition
                     composition.duration = CMTimeGetSeconds(asset.duration)
                     
+                    let isDuplicate = compositions.contains { $0.name == composition.name && $0.artist == composition.artist }
+                    
                     /// Adding a composition to the array if it is not there yet
-                    if !self.parent.compositions.contains(where: { $0.name == composition.name }) {
-                        DispatchQueue.main.async {
-                            self.parent.compositions.append(composition)
-                        }
+                    if !isDuplicate {
+                        $compositions.append(composition)
                     } else {
                         print ("Composition with the same name is already exists")
                     }
-                    
                 } catch {
                     print ("Error processing the file: \(error)")
                 }
